@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magic Artist — Video Editing · Web Design · Graphic Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    --bg:#0B0B10;
+    --surface:#15141C;
+    --surface2:#1C1A26;
+    --violet:#9B5DE5;
+    --green:#2DD4A7;
+    --pink:#F15BB5;
+    --cyan:#4FD8E8;
+    --text:#F3F1EE;
+    --muted:#9B96A8;
+    --line:rgba(255,255,255,0.08);
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  :root[data-theme="light"]{
+    --bg:#F6F4FA;
+    --surface:#FFFFFF;
+    --surface2:#F1EEF8;
+    --text:#18151F;
+    --muted:#6B6577;
+    --line:rgba(20,15,30,0.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* Background glow */
+  .glow{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(700px 500px at 12% 6%, rgba(155,93,229,0.42), transparent 62%),
+      radial-gradient(650px 480px at 92% 18%, rgba(241,91,181,0.34), transparent 62%),
+      radial-gradient(680px 520px at 25% 92%, rgba(45,212,167,0.28), transparent 62%),
+      radial-gradient(620px 460px at 80% 75%, rgba(79,216,232,0.26), transparent 62%),
+      radial-gradient(900px 700px at 50% 40%, rgba(155,93,229,0.10), transparent 70%);
+  }
+  :root[data-theme="light"] .glow{
+    background:
+      radial-gradient(700px 500px at 12% 6%, rgba(155,93,229,0.10), transparent 62%),
+      radial-gradient(650px 480px at 92% 18%, rgba(241,91,181,0.08), transparent 62%),
+      radial-gradient(680px 520px at 25% 92%, rgba(45,212,167,0.07), transparent 62%),
+      radial-gradient(620px 460px at 80% 75%, rgba(79,216,232,0.07), transparent 62%);
+  }
+
+  .lang-switch{
+    position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:20;
+    display:flex;gap:4px;background:rgba(21,20,28,0.85);backdrop-filter:blur(8px);
+    border:1px solid var(--line);border-radius:999px;padding:4px;
+  }
+  .lang-switch button{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+    background:none;border:none;color:var(--muted);
+    padding:6px 10px;border-radius:999px;cursor:pointer;
+  }
+  .lang-switch button.active{background:var(--violet);color:#fff;}
+  html[dir="rtl"] .lang-switch{right:auto;left:18px;}
+
+  .theme-switch{
+    position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:110px;z-index:20;
+    width:34px;height:34px;border-radius:50%;
+    background:rgba(21,20,28,0.85);backdrop-filter:blur(8px);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:15px;
+  }
+  html[dir="rtl"] .theme-switch{right:auto;left:110px;}
+
+  .brand-dots{display:flex;gap:6px;margin:0 0 14px;}
+  .brand-dots span{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .brand-dots span:nth-child(1){background:var(--cyan);}
+  .brand-dots span:nth-child(2){background:var(--violet);}
+  .brand-dots span:nth-child(3){background:var(--green);}
+  .brand-dots span:nth-child(4){background:var(--pink);}
+
+  header{position:relative;z-index:1;padding:64px 0 56px;}
+  .mark{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Unbounded',sans-serif;font-weight:600;font-size:14px;
+    color:var(--muted);letter-spacing:0.02em;
+  }
+  .mark svg{width:16px;height:16px;flex:none;}
+
+  h1{
+    font-family:'Unbounded',sans-serif;
+    font-weight:800;
+    font-size:clamp(40px,9vw,76px);
+    line-height:0.98;
+    margin:22px 0 0;
+    letter-spacing:-0.01em;
+  }
+  h1 .line{display:block;}
+  h1 .glimmer{
+    background:linear-gradient(100deg,var(--cyan),var(--violet) 45%,var(--pink) 85%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  .tagline{
+    margin:26px 0 0;
+    font-size:19px;
+    line-height:1.55;
+    color:var(--muted);
+    max-width:38ch;
+  }
+
+  .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:15px;
+    padding:13px 22px;border-radius:999px;
+    text-decoration:none;display:inline-block;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(100deg,var(--pink),var(--violet));color:#160B22;}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+
+  section{position:relative;z-index:1;padding:28px 0;}
+  .divider{height:1px;background:var(--line);margin:0 0 56px;}
+
+  .services{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media(max-width:720px){.services{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 22px;
+  }
+  .card:nth-child(1){border-top:2px solid var(--pink);}
+  .card:nth-child(2){border-top:2px solid var(--green);}
+  .card:nth-child(3){border-top:2px solid var(--violet);}
+  .card .icon{width:34px;height:34px;margin-bottom:18px;}
+  .card-visual{
+    width:100%;height:120px;border-radius:12px;margin-bottom:18px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .card-visual svg{width:100%;height:100%;}
+  .card h3{
+    font-family:'Unbounded',sans-serif;font-weight:600;
+    font-size:18px;margin:0 0 10px;
+  }
+  .card p{color:var(--muted);font-size:14.5px;line-height:1.6;margin:0;}
+
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:720px){.work-grid{grid-template-columns:1fr;}}
+  .work-card{
+    border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    background:var(--surface);text-decoration:none;display:block;
+  }
+  .work-card:nth-child(1){border-top:2px solid var(--cyan);}
+  .work-card:nth-child(2){border-top:2px solid var(--violet);}
+  .work-card:nth-child(3){border-top:2px solid var(--pink);}
+  .work-thumb{
+    height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    font-family:'Unbounded',sans-serif;font-weight:600;font-size:13px;color:rgba(255,255,255,0.9);
+    position:relative;overflow:hidden;
+  }
+  .work-thumb svg{width:52px;height:52px;flex:none;}
+  .thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .thumb-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,15,0.05),rgba(10,8,15,0.65));z-index:0;}
+  .work-thumb .thumb-label{position:relative;z-index:1;}
+  .work-thumb.poster-thumb{padding:0;}
+  .work-thumb.poster-thumb svg{width:100%;height:100%;}
+  .work-thumb.poster-thumb .thumb-label{display:none;}
+  .work-thumb.t1{background:linear-gradient(135deg,#9B5DE5,#F15BB5);}
+  .work-thumb.t2{background:linear-gradient(135deg,#2DD4A7,#9B5DE5);}
+  .work-thumb.t3{background:linear-gradient(135deg,#F15BB5,#2DD4A7);}
+  .work-info{padding:16px 18px;}
+  .work-info .tag{font-size:12px;color:var(--muted);margin:0 0 4px;}
+  .work-info .title{font-size:15px;font-weight:600;margin:0;}
+
+  .sec-title{position:relative;padding-left:16px;}
+  .sec-title::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:4px;border-radius:2px;}
+  .sec-title.c-violet::before{background:var(--violet);}
+  .sec-title.c-pink::before{background:var(--pink);}
+  .sec-title.c-green::before{background:var(--green);}
+  .sec-title.c-cyan::before{background:var(--cyan);}
+
+  .testimonial{position:relative;padding:10px 0 10px 34px;}
+  .testimonial .mark-quote{
+    position:absolute;left:-6px;top:-14px;
+    font-family:'Unbounded',sans-serif;font-size:64px;font-weight:800;
+    background:linear-gradient(160deg,var(--pink),var(--violet));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    line-height:1;user-select:none;
+  }
+  .testimonial p.quote{
+    font-size:clamp(19px,3vw,24px);line-height:1.5;margin:0 0 18px;
+    font-family:'Unbounded',sans-serif;font-weight:400;letter-spacing:-0.01em;
+  }
+  .testimonial .who{display:flex;align-items:center;gap:10px;}
+  .testimonial .avatar{
+    width:34px;height:34px;border-radius:50%;flex:none;
+    background:linear-gradient(135deg,var(--green),var(--violet));
+  }
+  .testimonial .who-text{font-size:13.5px;color:var(--muted);}
+  .testimonial .who-text strong{color:var(--text);font-weight:600;}
+
+  .about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start;}
+  @media(max-width:720px){.about{grid-template-columns:1fr;}}
+  .about h2{
+    font-family:'Unbounded',sans-serif;font-weight:600;
+    font-size:26px;margin:0 0 16px;
+  }
+  .about p{color:var(--muted);font-size:16px;line-height:1.75;margin:0;}
+
+  .lang-box{background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .lang-box .label{font-size:13px;color:var(--muted);margin-bottom:14px;}
+  .lang-list{display:flex;flex-direction:column;gap:10px;}
+  .lang-item{display:flex;justify-content:space-between;align-items:center;font-size:15px;}
+  .lang-item .dots{flex:1;height:1px;background:var(--line);margin:0 12px;}
+  .lang-item .fluency{font-size:13px;font-weight:500;}
+  .lang-item:nth-child(1) .fluency{color:var(--cyan);}
+  .lang-item:nth-child(2) .fluency{color:var(--violet);}
+  .lang-item:nth-child(3) .fluency{color:var(--pink);}
+  .lang-item:nth-child(4) .fluency{color:var(--green);}
+
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:900px){.price-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.price-grid{grid-template-columns:1fr;}}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:720px){.steps{grid-template-columns:1fr;}}
+  .step{position:relative;padding:8px 0 0;}
+  .step .num{
+    font-family:'Unbounded',sans-serif;font-weight:800;font-size:15px;
+    width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;
+    margin-bottom:16px;
+  }
+  .step h3{font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;margin:0 0 8px;}
+  .step p{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+  .step-line{
+    position:absolute;top:25px;left:34px;right:-14px;height:1px;
+    background:linear-gradient(90deg,var(--line),transparent);
+  }
+  @media(max-width:720px){.step-line{display:none;}}
+  .step:last-child .step-line{display:none;}
+  .price-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;
+    padding:26px 22px;display:flex;flex-direction:column;
+  }
+  .price-card.feat{border-color:var(--pink);background:linear-gradient(160deg,var(--surface),var(--surface2));}
+  .price-card:nth-child(1){border-top:2px solid var(--cyan);}
+  .price-card:nth-child(2){border-top:2px solid var(--violet);}
+  .price-card:nth-child(3){border-top:2px solid var(--pink);}
+  .price-card:nth-child(4){border-top:2px solid var(--green);}
+  .price-card:nth-child(1) .pval{color:var(--cyan);}
+  .price-card:nth-child(2) .pval{color:var(--violet);}
+  .price-card:nth-child(3) .pval{color:var(--pink);}
+  .price-card:nth-child(4) .pval{color:var(--green);}
+  .price-card .ptag{font-size:13px;color:var(--muted);margin:0 0 6px;}
+  .price-card .pname{font-family:'Unbounded',sans-serif;font-weight:600;font-size:17px;margin:0 0 14px;}
+  .price-card .pval{font-family:'Unbounded',sans-serif;font-weight:800;font-size:30px;margin:0 0 2px;}
+  .price-card .pval span{font-size:14px;font-weight:500;color:var(--muted);}
+  .price-card .pfrom{font-size:12px;color:var(--muted);margin:0 0 18px;}
+  .price-card ul{list-style:none;padding:0;margin:0 0 22px;flex:1;}
+  .price-card li{font-size:13.5px;color:var(--muted);padding:7px 0;border-top:1px solid var(--line);}
+  .price-card li:first-child{border-top:none;}
+  .price-card a.pbtn{
+    text-align:center;padding:11px;border-radius:10px;text-decoration:none;
+    font-size:14px;font-weight:600;border:1px solid var(--line);color:var(--text);
+  }
+  .price-card.feat a.pbtn{background:linear-gradient(100deg,var(--pink),var(--violet));border:none;color:#fff;}
+  .price-note{font-size:13px;color:var(--muted);margin:16px 0 0;text-align:center;}
+
+  .contact{
+    background:linear-gradient(160deg,var(--surface),var(--surface2));
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:44px 32px;
+    text-align:center;
+  }
+  .contact h2{
+    font-family:'Unbounded',sans-serif;font-weight:800;
+    font-size:clamp(26px,5vw,36px);margin:0 0 10px;
+  }
+  .contact h2::after{
+    content:'';display:block;width:44px;height:3px;border-radius:2px;
+    margin:10px auto 0;background:linear-gradient(90deg,var(--pink),var(--violet));
+  }
+  .contact p.sub{color:var(--muted);margin:0 0 30px;font-size:15.5px;}
+  .contact-links{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto;}
+  .clink{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 18px;border-radius:12px;
+    background:rgba(255,255,255,0.03);border:1px solid var(--line);
+    text-decoration:none;font-size:15px;font-weight:500;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .clink:hover{border-color:var(--pink);background:rgba(241,91,181,0.1);}
+  .clink svg{width:18px;height:18px;flex:none;opacity:0.8;}
+
+  footer{position:relative;z-index:1;padding:36px 0 48px;text-align:center;}
+  footer p{color:var(--muted);font-size:13px;margin:0;}
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{opacity:0;transform:translateY(14px);animation:fadeUp .7s ease forwards;}
+    .fade-up:nth-child(1){animation-delay:.05s;}
+    .fade-up:nth-child(2){animation-delay:.15s;}
+    .fade-up:nth-child(3){animation-delay:.25s;}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  }
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<div class="theme-switch" id="themeToggle">🌙</div>
+<div class="lang-switch">
+  <button data-lang="en" class="active">EN</button>
+  <button data-lang="fr">FR</button>
+  <button data-lang="es">ES</button>
+  <button data-lang="ar">AR</button>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="brand-dots fade-up"><span></span><span></span><span></span><span></span></div>
+    <span class="mark fade-up">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" fill="#F15BB5"/></svg>
+      MAGIC ARTIST
+    </span>
+    <h1 class="fade-up">
+      <span class="line" data-i18n="h1a">Video, web &amp;</span>
+      <span class="line glimmer" data-i18n="h1b">visual craft.</span>
+    </h1>
+    <p class="tagline fade-up" data-i18n="tagline">
+      I edit videos, build websites, and design graphics —
+      turning ideas into things people actually stop and look at.
+    </p>
+    <div class="cta-row fade-up">
+      <a class="btn btn-primary" href="mailto:magicartist.edit@gmail.com" data-i18n="ctaPrimary">Start a project</a>
+      <a class="btn btn-ghost" href="#work" data-i18n="ctaGhost">See what I do</a>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <section id="work">
+    <div class="services">
+      <div class="card">
+        <div class="card-visual" style="background:linear-gradient(155deg,#241a2e,#2b1522);">
+          <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="30" width="100" height="60" rx="6" fill="none" stroke="#F15BB5" stroke-width="2"/>
+            <rect x="30" y="30" width="100" height="14" fill="#F15BB5" opacity="0.15"/>
+            <circle cx="40" cy="37" r="2.5" fill="#F15BB5"/>
+            <path d="M60 55l16 10-16 10V55z" fill="#F15BB5"/>
+            <path d="M130 48l30-16v56l-30-16V48z" fill="none" stroke="#9B5DE5" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="34" y="96" width="90" height="4" rx="2" fill="#2DD4A7" opacity="0.6"/>
+            <rect x="34" y="96" width="46" height="4" rx="2" fill="#2DD4A7"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s1t">Video editing</h3>
+        <p data-i18n="s1p">Cuts, pacing, color and sound that hold attention — reels, ads, and long-form, ready to publish.</p>
+      </div>
+      <div class="card">
+        <div class="card-visual" style="background:linear-gradient(155deg,#14251f,#152430);">
+          <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="24" width="140" height="72" rx="8" fill="none" stroke="#2DD4A7" stroke-width="2"/>
+            <rect x="30" y="24" width="140" height="16" rx="8" fill="#2DD4A7" opacity="0.18"/>
+            <circle cx="40" cy="32" r="2.2" fill="#2DD4A7"/>
+            <circle cx="47" cy="32" r="2.2" fill="#2DD4A7"/>
+            <circle cx="54" cy="32" r="2.2" fill="#2DD4A7"/>
+            <rect x="40" y="52" width="52" height="30" rx="4" fill="none" stroke="#4FD8E8" stroke-width="1.8"/>
+            <rect x="100" y="52" width="52" height="8" rx="3" fill="#9B5DE5" opacity="0.7"/>
+            <rect x="100" y="65" width="40" height="6" rx="3" fill="#9B5DE5" opacity="0.4"/>
+            <rect x="100" y="76" width="52" height="6" rx="3" fill="#9B5DE5" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s2t">Web design</h3>
+        <p data-i18n="s2p">Clean, fast websites built around what your visitors need to see first — not a generic template.</p>
+      </div>
+      <div class="card">
+        <div class="card-visual" style="background:linear-gradient(155deg,#241a2e,#142430);">
+          <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 30c-24 0-42 16-42 36 0 14 10 20 20 20 6 0 8-4 8-8 0-5-4-6-4-12 0-10 8-18 18-18 14 0 26 10 26 24 0 18-16 30-34 30" fill="none" stroke="#9B5DE5" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="70" cy="54" r="5" fill="#F15BB5"/>
+            <circle cx="86" cy="40" r="5" fill="#4FD8E8"/>
+            <circle cx="108" cy="38" r="5" fill="#2DD4A7"/>
+            <circle cx="124" cy="54" r="5" fill="#F15BB5"/>
+            <line x1="70" y1="88" x2="140" y2="88" stroke="#2DD4A7" stroke-width="2"/>
+            <line x1="70" y1="88" x2="112" y2="88" stroke="#9B5DE5" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s3t">Graphic design</h3>
+        <p data-i18n="s3p">Logos, social posts, and brand visuals with a consistent look you can build a presence around.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2 data-i18n="workHeading" class="sec-title c-cyan" style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:26px;margin:0 0 22px;">Featured work</h2>
+    <div class="work-grid">
+      <a class="work-card" href="#">
+        <div class="work-thumb t1 poster-thumb">
+          <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="reelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#F15BB5"/>
+                <stop offset="50%" stop-color="#9B5DE5"/>
+                <stop offset="100%" stop-color="#4FD8E8"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="200" height="150" fill="#0B0B10"/>
+            <text x="14" y="78" font-family="'Unbounded',sans-serif" font-weight="800" font-size="40" fill="url(#reelGrad)">EDIT</text>
+            <rect x="140" y="104" width="46" height="30" rx="3" fill="none" stroke="#F3F1EE" stroke-width="2" opacity="0.85"/>
+            <path d="M152 111l12 8-12 8v-16z" fill="#F15BB5"/>
+            <path d="M186 108l10 -5v28l-10 -5v-18z" fill="none" stroke="#F3F1EE" stroke-width="2" stroke-linejoin="round" opacity="0.6"/>
+          </svg>
+          <span class="thumb-label" data-i18n="w1thumb">Reel Edit</span>
+        </div>
+        <div class="work-info"><p class="tag" data-i18n="s1t">Video editing</p><p class="title" data-i18n="w1title">Brand launch reel</p></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="work-thumb t2 poster-thumb">
+          <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="siteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2DD4A7"/>
+                <stop offset="50%" stop-color="#9B5DE5"/>
+                <stop offset="100%" stop-color="#4FD8E8"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="200" height="150" fill="#0B0B10"/>
+            <text x="14" y="52" font-family="'Unbounded',sans-serif" font-weight="800" font-size="34" fill="#F3F1EE">WEB</text>
+            <text x="14" y="92" font-family="'Unbounded',sans-serif" font-weight="800" font-size="34" fill="url(#siteGrad)">DESIGN</text>
+            <rect x="140" y="102" width="46" height="34" rx="4" fill="none" stroke="#F3F1EE" stroke-width="2" opacity="0.85"/>
+            <rect x="140" y="102" width="46" height="9" rx="4" fill="#F3F1EE" opacity="0.25"/>
+            <circle cx="145" cy="106.5" r="1.4" fill="#F3F1EE"/>
+            <circle cx="149.5" cy="106.5" r="1.4" fill="#F3F1EE"/>
+            <rect x="144" y="117" width="16" height="14" rx="1.5" fill="#4FD8E8" opacity="0.8"/>
+            <rect x="163" y="117" width="19" height="4" rx="2" fill="#F15BB5" opacity="0.7"/>
+            <rect x="163" y="124" width="14" height="4" rx="2" fill="#F15BB5" opacity="0.45"/>
+          </svg>
+          <span class="thumb-label" data-i18n="w2thumb">Site Preview</span>
+        </div>
+        <div class="work-info"><p class="tag" data-i18n="s2t">Web design</p><p class="title" data-i18n="w2title">Studio portfolio site</p></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="work-thumb t3 poster-thumb">
+          <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#4FD8E8"/>
+                <stop offset="50%" stop-color="#9B5DE5"/>
+                <stop offset="100%" stop-color="#F15BB5"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="200" height="150" fill="#0B0B10"/>
+            <text x="14" y="52" font-family="'Unbounded',sans-serif" font-weight="800" font-size="34" fill="#F3F1EE">BRAND</text>
+            <text x="14" y="92" font-family="'Unbounded',sans-serif" font-weight="800" font-size="34" fill="url(#brandGrad)">KIT</text>
+            <circle cx="150" cy="115" r="9" fill="#4FD8E8"/>
+            <circle cx="168" cy="115" r="9" fill="#9B5DE5"/>
+            <circle cx="150" cy="132" r="9" fill="#F15BB5"/>
+            <circle cx="168" cy="132" r="9" fill="#2DD4A7"/>
+            <path d="M14 120l14 -14" stroke="#F3F1EE" stroke-width="2" opacity="0.5"/>
+            <path d="M14 106h14v14" fill="none" stroke="#F3F1EE" stroke-width="2" opacity="0.5"/>
+          </svg>
+          <span class="thumb-label" data-i18n="w3thumb">Brand Kit</span>
+        </div>
+        <div class="work-info"><p class="tag" data-i18n="s3t">Graphic design</p><p class="title" data-i18n="w3title">Café identity &amp; logo</p></div>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="testimonial">
+      <span class="mark-quote">&ldquo;</span>
+      <p class="quote" data-i18n="quote">Magic Artist turned a rough idea into a finished reel and a working site in the same week — fast, and it actually looked like us.</p>
+      <div class="who">
+        <span class="avatar"></span>
+        <span class="who-text" data-i18n="quoteWho"><strong>Client name</strong> — Founder, Small Business</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="about">
+      <div>
+        <h2 data-i18n="aboutH" class="sec-title c-violet">About</h2>
+        <p data-i18n="aboutP">I'm Magic Artist — a multidisciplinary creative working across video, web, and graphic design.
+        I work with clients across different regions and languages, and I like to keep every project simple
+        to brief and fast to launch. Tell me what you need, and I'll turn it into something worth sharing.</p>
+      </div>
+      <div class="lang-box">
+        <div class="label" data-i18n="langLabel">Languages I work in</div>
+        <div class="lang-list">
+          <div class="lang-item"><span>English</span><span class="dots"></span><span class="fluency">Fluent</span></div>
+          <div class="lang-item"><span>Español</span><span class="dots"></span><span class="fluency">Fluent</span></div>
+          <div class="lang-item"><span>العربية</span><span class="dots"></span><span class="fluency">Native</span></div>
+          <div class="lang-item"><span>Français</span><span class="dots"></span><span class="fluency">Fluent</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2 data-i18n="priceHeading" class="sec-title c-green" style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:26px;margin:0 0 22px;">Pricing</h2>
+    <div class="price-grid">
+      <div class="price-card">
+        <p class="ptag" data-i18n="s1t">Video editing</p>
+        <p class="pname" data-i18n="p1name">Reel / Short Video</p>
+        <p class="pval">50€ <span data-i18n="p1unit">/ video</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p1f1">Up to 60 seconds</li>
+          <li data-i18n="p1f2">Color grading &amp; sound design</li>
+          <li data-i18n="p1f3">2 rounds of revisions</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <p class="ptag" data-i18n="s1t">Video editing</p>
+        <p class="pname" data-i18n="p1bname">YouTube / Long Video</p>
+        <p class="pval">100€ <span data-i18n="p1bunit">/ video</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p1bf1">Up to 10 minutes</li>
+          <li data-i18n="p1bf2">Full edit, captions &amp; thumbnail</li>
+          <li data-i18n="p1bf3">2 rounds of revisions</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+      <div class="price-card feat">
+        <p class="ptag" data-i18n="s2t">Web design</p>
+        <p class="pname" data-i18n="p2name">Portfolio / Landing Site</p>
+        <p class="pval">400€ <span data-i18n="p2unit">/ site</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p2f1">Up to 5 sections</li>
+          <li data-i18n="p2f2">Mobile-friendly design</li>
+          <li data-i18n="p2f3">1 week delivery</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <p class="ptag" data-i18n="s3t">Graphic design</p>
+        <p class="pname" data-i18n="p3name">Logo / Brand Kit</p>
+        <p class="pval">80€ <span data-i18n="p3unit">/ kit</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p3f1">Logo + color palette</li>
+          <li data-i18n="p3f2">Social media templates</li>
+          <li data-i18n="p3f3">Source files included</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+    </div>
+    <p class="price-note" data-i18n="priceNote">Prices are a starting point — the final quote depends on scope. Bundles available.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="contact">
+      <h2 data-i18n="contactH">Let's make something</h2>
+      <p class="sub" data-i18n="contactP">Have a project in mind? Reach out — I usually reply within a day.</p>
+      <div class="contact-links">
+        <a class="clink" href="mailto:magicartist.edit@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.6"/></svg>
+          magicartist.edit@gmail.com
+        </a>
+        <a class="clink" href="https://wa.me/34602542052" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19l-5 1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <span data-i18n="whatsapp">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer">© 2026 Magic Artist — Video editing · Web design · Graphic design</p>
+  </footer>
+</div>
+<script>
+const I18N = {
+  en: {
+    h1a:"Video, web &amp;", h1b:"visual craft.",
+    tagline:"I edit videos, build websites, and design graphics — turning ideas into things people actually stop and look at.",
+    ctaPrimary:"Start a project", ctaGhost:"See what I do",
+    s1t:"Video editing", s1p:"Cuts, pacing, color and sound that hold attention — reels, ads, and long-form, ready to publish.",
+    s2t:"Web design", s2p:"Clean, fast websites built around what your visitors need to see first — not a generic template.",
+    s3t:"Graphic design", s3p:"Logos, social posts, and brand visuals with a consistent look you can build a presence around.",
+    workHeading:"Featured work",
+    w1thumb:"Reel Edit", w1title:"Brand launch reel",
+    w2thumb:"Site Preview", w2title:"Studio portfolio site",
+    w3thumb:"Brand Kit", w3title:"Café identity &amp; logo",
+    quote:"Magic Artist turned a rough idea into a finished reel and a working site in the same week — fast, and it actually looked like us.",
+    quoteWho:"<strong>Client name</strong> — Founder, Small Business",
+    aboutH:"About",
+    aboutP:"I'm Magic Artist — a multidisciplinary creative working across video, web, and graphic design. I work with clients across different regions and languages, and I like to keep every project simple to brief and fast to launch. Tell me what you need, and I'll turn it into something worth sharing.",
+    langLabel:"Languages I work in",
+    stepsHeading:"How it works",
+    step1t:"Tell me your idea", step1p:"Send a message with what you need and any references you like.",
+    step2t:"I create a draft", step2p:"You get a first version to review, with room for revisions.",
+    step3t:"You get the final files", step3p:"Polished, ready to publish — plus the source files if you need them.",
+    priceHeading:"Pricing", pfrom:"Starting at", pcta:"Get a quote",
+    p1name:"Reel / Short Video", p1unit:"/ video", p1f1:"Up to 60 seconds", p1f2:"Color grading &amp; sound design", p1f3:"2 rounds of revisions",
+    p1bname:"YouTube / Long Video", p1bunit:"/ video", p1bf1:"Up to 10 minutes", p1bf2:"Full edit, captions &amp; thumbnail", p1bf3:"2 rounds of revisions",
+    p2name:"Portfolio / Landing Site", p2unit:"/ site", p2f1:"Up to 5 sections", p2f2:"Mobile-friendly design", p2f3:"1 week delivery",
+    p3name:"Logo / Brand Kit", p3unit:"/ kit", p3f1:"Logo + color palette", p3f2:"Social media templates", p3f3:"Source files included",
+    priceNote:"Prices are a starting point — the final quote depends on scope. Bundles available.",
+    contactH:"Let's make something", contactP:"Have a project in mind? Reach out — I usually reply within a day.",
+    whatsapp:"WhatsApp",
+    footer:"© 2026 Magic Artist — Video editing · Web design · Graphic design"
+  },
+  fr: {
+    h1a:"Vidéo, web &amp;", h1b:"création visuelle.",
+    tagline:"Je monte des vidéos, je crée des sites web et je conçois des visuels — je transforme des idées en choses qui retiennent l'attention.",
+    ctaPrimary:"Démarrer un projet", ctaGhost:"Voir mon travail",
+    s1t:"Montage vidéo", s1p:"Rythme, montage, couleur et son qui captent l'attention — reels, publicités et formats longs, prêts à publier.",
+    s2t:"Création de sites", s2p:"Des sites propres et rapides, pensés pour ce que vos visiteurs doivent voir en premier — pas un modèle générique.",
+    s3t:"Design graphique", s3p:"Logos, visuels réseaux sociaux et identité visuelle cohérente pour construire votre image de marque.",
+    workHeading:"Projets récents",
+    w1thumb:"Montage", w1title:"Reel de lancement de marque",
+    w2thumb:"Aperçu du site", w2title:"Site portfolio studio",
+    w3thumb:"Identité visuelle", w3title:"Logo &amp; identité d'un café",
+    quote:"Magic Artist a transformé une idée en un reel terminé et un site fonctionnel en une semaine — rapide, et ça nous ressemblait vraiment.",
+    quoteWho:"<strong>Nom du client</strong> — Fondateur, petite entreprise",
+    aboutH:"À propos",
+    aboutP:"Je suis Magic Artist — créatif polyvalent en montage vidéo, création de sites et design graphique. Je travaille avec des clients de différentes régions et langues, et j'aime garder chaque projet simple à briefer et rapide à lancer. Dites-moi ce dont vous avez besoin.",
+    langLabel:"Langues de travail",
+    stepsHeading:"Comment ça marche",
+    step1t:"Parlez-moi de votre idée", step1p:"Envoyez un message avec ce dont vous avez besoin et des références si vous en avez.",
+    step2t:"Je crée une première version", step2p:"Vous recevez une version à examiner, avec possibilité de retouches.",
+    step3t:"Vous recevez les fichiers finaux", step3p:"Finalisés, prêts à publier — avec les fichiers sources si besoin.",
+    priceHeading:"Tarifs", pfrom:"À partir de", pcta:"Demander un devis",
+    p1name:"Montage court / Reel", p1unit:"/ vidéo", p1f1:"Jusqu'à 60 secondes", p1f2:"Étalonnage &amp; son", p1f3:"2 séries de retouches",
+    p1bname:"Vidéo YouTube / longue", p1bunit:"/ vidéo", p1bf1:"Jusqu'à 10 minutes", p1bf2:"Montage complet, sous-titres &amp; miniature", p1bf3:"2 séries de retouches",
+    p2name:"Site portfolio / vitrine", p2unit:"/ site", p2f1:"Jusqu'à 5 sections", p2f2:"Design adapté au mobile", p2f3:"Livraison en 1 semaine",
+    p3name:"Logo / Kit de marque", p3unit:"/ kit", p3f1:"Logo + palette de couleurs", p3f2:"Modèles pour réseaux sociaux", p3f3:"Fichiers sources inclus",
+    priceNote:"Les prix sont indicatifs — le devis final dépend du projet. Formules groupées disponibles.",
+    contactH:"Créons quelque chose", contactP:"Un projet en tête ? Contactez-moi — je réponds généralement sous 24h.",
+    whatsapp:"WhatsApp",
+    footer:"© 2026 Magic Artist — Montage vidéo · Création de sites · Design graphique"
+  },
+  es: {
+    h1a:"Vídeo, web y", h1b:"diseño visual.",
+    tagline:"Edito vídeos, creo sitios web y diseño gráficos — convierto ideas en cosas que la gente realmente se detiene a mirar.",
+    ctaPrimary:"Empezar un proyecto", ctaGhost:"Ver mi trabajo",
+    s1t:"Edición de vídeo", s1p:"Cortes, ritmo, color y sonido que captan la atención — reels, anuncios y formatos largos, listos para publicar.",
+    s2t:"Diseño web", s2p:"Sitios web limpios y rápidos, pensados en lo que tus visitantes necesitan ver primero — no una plantilla genérica.",
+    s3t:"Diseño gráfico", s3p:"Logos, publicaciones y visuales de marca con un estilo coherente para construir tu presencia.",
+    workHeading:"Trabajos destacados",
+    w1thumb:"Edición", w1title:"Reel de lanzamiento de marca",
+    w2thumb:"Vista del sitio", w2title:"Sitio portfolio de estudio",
+    w3thumb:"Kit de marca", w3title:"Identidad &amp; logo de cafetería",
+    quote:"Magic Artist convirtió una idea en un reel terminado y un sitio web funcionando en la misma semana — rápido, y realmente se veía como nosotros.",
+    quoteWho:"<strong>Nombre del cliente</strong> — Fundador, pequeña empresa",
+    aboutH:"Sobre mí",
+    aboutP:"Soy Magic Artist — un creativo multidisciplinar que trabaja en vídeo, diseño web y diseño gráfico. Trabajo con clientes de distintas regiones e idiomas, y me gusta mantener cada proyecto simple de encargar y rápido de lanzar. Dime qué necesitas.",
+    langLabel:"Idiomas de trabajo",
+    stepsHeading:"Cómo funciona",
+    step1t:"Cuéntame tu idea", step1p:"Envía un mensaje con lo que necesitas y referencias si tienes.",
+    step2t:"Creo un primer borrador", step2p:"Recibes una primera versión para revisar, con espacio para cambios.",
+    step3t:"Recibes los archivos finales", step3p:"Listos para publicar — más los archivos fuente si los necesitas.",
+    priceHeading:"Precios", pfrom:"Desde", pcta:"Pedir presupuesto",
+    p1name:"Reel / Edición corta", p1unit:"/ vídeo", p1f1:"Hasta 60 segundos", p1f2:"Corrección de color y sonido", p1f3:"2 rondas de revisión",
+    p1bname:"Vídeo YouTube / largo", p1bunit:"/ vídeo", p1bf1:"Hasta 10 minutos", p1bf2:"Edición completa, subtítulos y miniatura", p1bf3:"2 rondas de revisión",
+    p2name:"Sitio portfolio / landing", p2unit:"/ sitio", p2f1:"Hasta 5 secciones", p2f2:"Diseño adaptado a móvil", p2f3:"Entrega en 1 semana",
+    p3name:"Logo / Kit de marca", p3unit:"/ kit", p3f1:"Logo + paleta de colores", p3f2:"Plantillas para redes sociales", p3f3:"Archivos fuente incluidos",
+    priceNote:"Los precios son orientativos — el presupuesto final depende del alcance. Hay packs disponibles.",
+    contactH:"Creemos algo", contactP:"¿Tienes un proyecto en mente? Escríbeme — suelo responder en un día.",
+    whatsapp:"WhatsApp",
+    footer:"© 2026 Magic Artist — Edición de vídeo · Diseño web · Diseño gráfico"
+  },
+  ar: {
+    h1a:"مونتاج، مواقع و", h1b:"تصميم بصري.",
+    tagline:"كنمونطي الفيديوهات، كنصاوب المواقع الإلكترونية، وكندير التصميم الگرافيكي — كنحول الأفكار لحوايج الناس كيوقفو يتفرجو فيها.",
+    ctaPrimary:"ابدا مشروع", ctaGhost:"شوف الشغل ديالي",
+    s1t:"مونتاج فيديو", s1p:"قص، إيقاع، لون وصوت كيشدو الانتباه — ريلز، إعلانات، وفيديوهات طويلة، جاهزة للنشر.",
+    s2t:"تصميم مواقع", s2p:"مواقع نظيفة وسريعة، مبنية على أساس شنو لازم الزوار يشوفو أول حاجة — ماشي قالب عادي.",
+    s3t:"تصميم گرافيكي", s3p:"لوگوهات، منشورات سوشيال ميديا، وهوية بصرية متناسقة تقدر تبني بيها الحضور ديالك.",
+    workHeading:"أعمال مختارة",
+    w1thumb:"مونتاج", w1title:"ريل إطلاق ماركة",
+    w2thumb:"معاينة الموقع", w2title:"موقع بورتفوليو استوديو",
+    w3thumb:"هوية بصرية", w3title:"هوية ولوگو ديال قهوة",
+    quote:"Magic Artist حول فكرة بسيطة لريل كامل وموقع خدام فنفس الأسبوع — بسرعة، وبانت خاصنا فعلا.",
+    quoteWho:"<strong>اسم الزبون</strong> — مؤسس، مقاولة صغيرة",
+    aboutH:"شكون أنا",
+    aboutP:"أنا Magic Artist — مبدع كيخدم فبزاف ديال المجالات: مونتاج فيديو، تصميم مواقع، وگرافيك ديزاين. كنخدم مع زبناء من مناطق ولغات مختلفة، وكنحب نخلي كل مشروع بسيط وسريع. قوليا شنو محتاج ونحولوه لحاجة تستاهل.",
+    langLabel:"اللغات لي كنخدم بيهم",
+    stepsHeading:"كيفاش كنخدمو",
+    step1t:"قوليا فكرتك", step1p:"صيفط رسالة فيها شنو محتاج، وشي مراجع إلا عندك.",
+    step2t:"كنصاوب نسخة أولى", step2p:"غادي توصلك نسخة أولى باش تشوفها، وكاين مجال للتعديل.",
+    step3t:"توصلك الملفات النهائية", step3p:"جاهزة للنشر — زائد الملفات الأصلية إلا احتجتيها.",
+    priceHeading:"الأثمنة", pfrom:"بداية من", pcta:"اطلب ثمن",
+    p1name:"مونتاج ريل / فيديو قصير", p1unit:"/ فيديو", p1f1:"حتى 60 ثانية", p1f2:"تصحيح ألوان وصوت", p1f3:"جولتين ديال التعديل",
+    p1bname:"فيديو يوتيوب / طويل", p1bunit:"/ فيديو", p1bf1:"حتى 10 دقايق", p1bf2:"مونتاج كامل، ترجمة وthumbnail", p1bf3:"جولتين ديال التعديل",
+    p2name:"موقع بورتفوليو / لاندينگ", p2unit:"/ موقع", p2f1:"حتى 5 سيكسيونات", p2f2:"تصميم متجاوب مع الهاتف", p2f3:"التسليم فأسبوع",
+    p3name:"لوگو / برند كيت", p3unit:"/ كيت", p3f1:"لوگو + ألوان الماركة", p3f2:"نماذج للسوشيال ميديا", p3f3:"الملفات الأصلية متضمنة",
+    priceNote:"الأثمنة هادي تقريبية — الثمن النهائي كيتوقف على حجم المشروع. كاين باقات مجمعة.",
+    contactH:"تعالا نصاوبو شي حاجة", contactP:"عندك مشروع فبالك؟ تواصل معايا — عادة كنرد فأقل من يوم.",
+    whatsapp:"واتساب",
+    footer:"© 2026 Magic Artist — مونتاج فيديو · تصميم مواقع · تصميم گرافيكي"
+  }
+};
+
+function setLang(lang){
+  const dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-switch button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  try{ localStorage.setItem('ma_lang', lang); }catch(e){}
+}
+
+document.querySelectorAll('.lang-switch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+});
+
+let savedLang = 'en';
+try{ savedLang = localStorage.getItem('ma_lang') || 'en'; }catch(e){}
+if(I18N[savedLang]) setLang(savedLang);
+
+// Theme: dark at night (19:00-06:59), light during the day, unless the visitor overrides it.
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  const btn = document.getElementById('themeToggle');
+  if(btn) btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+}
+let theme;
+try{ theme = localStorage.getItem('ma_theme'); }catch(e){}
+if(!theme){
+  const hour = new Date().getHours();
+  theme = (hour >= 19 || hour < 7) ? 'dark' : 'light';
+}
+applyTheme(theme);
+
+document.getElementById('themeToggle').addEventListener('click', ()=>{
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try{ localStorage.setItem('ma_theme', next); }catch(e){}
+});
+</script>
+</body>
+</html>
