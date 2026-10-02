@@ -1,67 +1,599 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e8"><meta name="description" content="Discover Marbella Club Hotel, a Mediterranean beachfront retreat with an unmistakable Andalusian spirit."><title>Marbella Club Hotel — A Mediterranean way of life</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magic Artist — Video Editing · Web Design · Graphic Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--sand:#f5f1e8;--green:#243e35;--olive:#68745d;--clay:#b87856;--ink:#292b25;--muted:#74766f;--line:#d8d3c8;--white:#fffdf8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--sand);color:var(--ink);font-family:'DM Sans',sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1240px,calc(100% - 64px));margin:auto}.topbar{height:78px;display:flex;align-items:center;background:var(--sand);position:relative;z-index:2}.nav{display:flex;align-items:center;justify-content:space-between}.brand{font:500 21px 'Playfair Display',serif;letter-spacing:3px;color:var(--green)}.brand small{display:block;text-align:center;font:500 8px 'DM Sans',sans-serif;letter-spacing:4px;margin-top:3px}.navlinks{display:flex;gap:29px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#4d534b}.navlinks a:hover{color:var(--clay)}.reserve{border:1px solid #70796c;padding:12px 19px;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;transition:.2s}.reserve:hover{background:var(--green);color:white}.header-actions{display:flex;align-items:center;gap:16px}.language-switch{display:flex;gap:4px;border:1px solid var(--line);padding:3px}.language-switch button{border:0;background:transparent;color:var(--green);font:600 10px 'DM Sans',sans-serif;letter-spacing:1px;padding:7px 8px;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--green);color:white}.toggle{display:none;border:0;background:none;font-size:24px;color:var(--green)}
-.hero{height:min(690px,75vw);min-height:540px;position:relative;color:white;display:flex;align-items:center;background:#293d32 url('https://image-tc.galaxy.tf/wijpeg-ahnie6m7a1dm2w86yx0isc17c/beach-club-21.jpg?crop=0%2C0%2C1280%2C853&rotate=0&width=1800') center 53%/cover}.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#18271fbf 0%,#18271f62 42%,#18271f00 100%),linear-gradient(0deg,#18271f55,transparent 55%)}.hero-content{position:relative;max-width:650px;padding:50px 0}.kicker{text-transform:uppercase;letter-spacing:3px;font-size:10px;color:#e9d3ba}.hero h1{font:400 clamp(48px,7vw,86px)/1.05 'Playfair Display',serif;letter-spacing:-1.7px;margin:20px 0}.hero p{font:400 16px/1.8 'DM Sans',sans-serif;color:#f1eee7;max-width:440px;margin:0 0 27px}.hero-link{display:inline-flex;padding:14px 22px;border:1px solid #f5f1e8;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}.hero-link:hover{background:var(--sand);color:var(--green)}.hero-place{position:absolute;right:32px;bottom:27px;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;color:#eee9df}
-.intro{padding:94px 0 88px;text-align:center}.intro .kicker,.section-kicker{color:var(--clay);font-size:10px;letter-spacing:2px;text-transform:uppercase}.intro h2,.section-title{font:400 clamp(35px,4.3vw,54px)/1.15 'Playfair Display',serif;color:var(--green);margin:17px auto 18px}.intro p{max-width:700px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.9}.intro .signature{font:italic 15px 'Playfair Display',serif;color:var(--green);margin-top:22px}
-.experience{padding:35px 0 100px}.feature{display:grid;grid-template-columns:1fr 1fr;min-height:450px;align-items:stretch;margin-bottom:32px}.feature:nth-child(even) .feature-photo{order:2}.feature-photo{min-height:420px;background-size:cover;background-position:center}.feature-copy{background:#ebe6db;padding:clamp(38px,6vw,80px);display:flex;flex-direction:column;justify-content:center}.feature-copy h3{font:400 clamp(31px,4vw,46px)/1.1 'Playfair Display',serif;color:var(--green);margin:16px 0}.feature-copy p{color:var(--muted);font-size:13px;line-height:1.9;max-width:410px}.text-link{font-size:10px;text-transform:uppercase;letter-spacing:1.7px;border-bottom:1px solid var(--clay);padding-bottom:8px;width:max-content;margin-top:13px;color:var(--green)}.text-link:hover{color:var(--clay)}
-.story{background:var(--green);color:var(--sand);padding:90px 0}.story-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px;align-items:center}.story-mark{height:240px;width:240px;border:1px solid #aeb5a8;border-radius:50%;display:grid;place-items:center;margin:auto;font:400 72px 'Playfair Display',serif;color:#e7d2b7;position:relative}.story-mark:after{content:'MARBELLA · ANDALUCÍA';position:absolute;bottom:43px;font:9px 'DM Sans',sans-serif;letter-spacing:2px;color:#d6d9ce}.story .section-kicker{color:#e2b18e}.story h2{font:400 clamp(36px,4.2vw,52px)/1.15 'Playfair Display',serif;margin:16px 0}.story p{color:#d7dbd1;max-width:650px;font-size:14px;line-height:1.9}
-.visit{padding:90px 0}.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;margin-top:28px}.visit h2{margin:15px 0}.visit p{color:var(--muted);font-size:14px;line-height:1.85;max-width:470px}.contact{border-top:1px solid var(--line);padding-top:15px;margin-top:23px;font-size:13px;line-height:2}.contact a{border-bottom:1px solid #b5aa99}.map{height:230px;position:relative;overflow:hidden;border:0}.map iframe{width:100%;height:100%;display:block;border:0}.map-open{position:absolute;left:12px;bottom:12px;background:var(--white);padding:10px 13px;font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--green);box-shadow:0 3px 12px #18271f20}.map span{display:block;font:10px 'DM Sans',sans-serif;letter-spacing:1px;margin-top:8px;text-transform:uppercase}footer{background:#1d342d;color:#e8e4da;padding:28px 0}.footer{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:10px;letter-spacing:.5px}.footer .brand{color:#eee8dc;font-size:17px}
-@media(max-width:800px){.wrap{width:calc(100% - 38px)}.topbar{height:70px}.navlinks,.reserve{display:none}.toggle{display:block}.navlinks.open{display:flex;position:absolute;top:70px;left:0;right:0;background:var(--sand);padding:15px 24px 23px;flex-direction:column;gap:20px;border-bottom:1px solid var(--line)}.hero{height:680px;min-height:0;background-position:58% center}.hero-content{padding:32px 0}.hero h1{font-size:59px}.hero-place{right:19px}.intro{padding:72px 0}.hotel-details{padding:60px 0}.amenity-grid{grid-template-columns:repeat(2,1fr)}.experience{padding:0 0 65px}.feature{grid-template-columns:1fr;margin-bottom:18px}.feature:nth-child(even) .feature-photo{order:0}.feature-photo{min-height:300px}.feature-copy{padding:36px 28px 42px}.story{padding:70px 0}.story-grid{grid-template-columns:1fr;gap:34px}.story-mark{width:180px;height:180px;font-size:58px}.story-mark:after{bottom:31px}.visit{padding:70px 0}.visit-grid{grid-template-columns:1fr;gap:25px}.map{height:185px}.footer{align-items:flex-start;flex-direction:column;gap:12px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.hotel-details{padding:75px 0;background:#ebe6db;text-align:left}.hotel-details h2{font:500 clamp(30px,4vw,43px)/1.2 'Playfair Display',serif;color:var(--green);margin:12px 0}.hotel-details .details-intro{max-width:830px;color:var(--muted);font-size:15px;line-height:1.9;margin:0 0 27px}.amenity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.amenity{background:var(--white);border:1px solid var(--line);padding:15px 16px;border-radius:3px;color:#3f4b41;font-size:13px;line-height:1.5}.amenity:before{content:'✦';color:var(--clay);margin-right:10px;font-size:11px}.theme-toggle{border:1px solid var(--line);background:transparent;color:var(--ink);font-size:16px;width:34px;height:34px;cursor:pointer}.theme-toggle:hover{border-color:var(--clay);color:var(--clay)}
-:root[data-theme="dark"]{color-scheme:dark;--sand:#171c18;--ink:#eeeae2;--muted:#bec2b8;--line:#414a42;--white:#242b25;--clay:#d5a07d}
-:root[data-theme="dark"] .brand,:root[data-theme="dark"] .navlinks{color:#eee8dc}
-:root[data-theme="dark"] .language-switch button{color:#eee8dc}
-:root[data-theme="dark"] .language-switch button[aria-pressed="true"]{background:#46594b;color:white}
-:root[data-theme="dark"] .feature-copy,:root[data-theme="dark"] .hotel-details,:root[data-theme="dark"] .visit-card{background:#222a24}
-:root[data-theme="dark"] .intro h2,:root[data-theme="dark"] .intro .signature,:root[data-theme="dark"] .feature-copy h3,:root[data-theme="dark"] .hotel-details h2,:root[data-theme="dark"] .visit h2,:root[data-theme="dark"] .text-link,:root[data-theme="dark"] .map-open{color:#eee8dc}
-:root[data-theme="dark"] .amenity{color:#e4e1d9}
-:root[data-theme="dark"] .story{background:#101713;color:#f2ede3}
-:root[data-theme="dark"] .detail{border-color:var(--line)}
-:root[data-theme="dark"] .contact a{border-color:var(--line)}
-:root[data-theme="dark"] .hero-link:hover{background:#f5f1e8;color:#243e35}
-@media(max-width:800px){.brand{font-size:15px;letter-spacing:2px}.brand small{font-size:7px;letter-spacing:3px}.header-actions{gap:7px}.language-switch button{padding:6px 5px}}</style></head>
+  :root{
+    box-sizing:border-box;
+    --bg:#0B0B10;
+    --surface:#15141C;
+    --surface2:#1C1A26;
+    --violet:#9B5DE5;
+    --green:#2DD4A7;
+    --pink:#F15BB5;
+    --cyan:#4FD8E8;
+    --text:#F3F1EE;
+    --muted:#9B96A8;
+    --line:rgba(255,255,255,0.08);
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* Background glow */
+  .glow{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(700px 500px at 12% 6%, rgba(155,93,229,0.42), transparent 62%),
+      radial-gradient(650px 480px at 92% 18%, rgba(241,91,181,0.34), transparent 62%),
+      radial-gradient(680px 520px at 25% 92%, rgba(45,212,167,0.28), transparent 62%),
+      radial-gradient(620px 460px at 80% 75%, rgba(79,216,232,0.26), transparent 62%),
+      radial-gradient(900px 700px at 50% 40%, rgba(155,93,229,0.10), transparent 70%);
+  }
+
+  .lang-switch{
+    position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:18px;z-index:20;
+    display:flex;gap:4px;background:rgba(21,20,28,0.85);backdrop-filter:blur(8px);
+    border:1px solid var(--line);border-radius:999px;padding:4px;
+  }
+  .lang-switch button{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+    background:none;border:none;color:var(--muted);
+    padding:6px 10px;border-radius:999px;cursor:pointer;
+  }
+  .lang-switch button.active{background:var(--violet);color:#fff;}
+  html[dir="rtl"] .lang-switch{right:auto;left:18px;}
+
+  .brand-dots{display:flex;gap:6px;margin:0 0 14px;}
+  .brand-dots span{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .brand-dots span:nth-child(1){background:var(--cyan);}
+  .brand-dots span:nth-child(2){background:var(--violet);}
+  .brand-dots span:nth-child(3){background:var(--green);}
+  .brand-dots span:nth-child(4){background:var(--pink);}
+
+  header{position:relative;z-index:1;padding:64px 0 56px;}
+  .mark{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Unbounded',sans-serif;font-weight:600;font-size:14px;
+    color:var(--muted);letter-spacing:0.02em;
+  }
+  .mark svg{width:16px;height:16px;flex:none;}
+
+  h1{
+    font-family:'Unbounded',sans-serif;
+    font-weight:800;
+    font-size:clamp(40px,9vw,76px);
+    line-height:0.98;
+    margin:22px 0 0;
+    letter-spacing:-0.01em;
+  }
+  h1 .line{display:block;}
+  h1 .glimmer{
+    background:linear-gradient(100deg,var(--cyan),var(--violet) 45%,var(--pink) 85%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  .tagline{
+    margin:26px 0 0;
+    font-size:19px;
+    line-height:1.55;
+    color:var(--muted);
+    max-width:38ch;
+  }
+
+  .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:15px;
+    padding:13px 22px;border-radius:999px;
+    text-decoration:none;display:inline-block;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(100deg,var(--pink),var(--violet));color:#160B22;}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+
+  section{position:relative;z-index:1;padding:28px 0;}
+  .divider{height:1px;background:var(--line);margin:0 0 56px;}
+
+  .services{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media(max-width:720px){.services{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 22px;
+  }
+  .card:nth-child(1){border-top:2px solid var(--pink);}
+  .card:nth-child(2){border-top:2px solid var(--green);}
+  .card:nth-child(3){border-top:2px solid var(--violet);}
+  .card .icon{width:34px;height:34px;margin-bottom:18px;}
+  .card h3{
+    font-family:'Unbounded',sans-serif;font-weight:600;
+    font-size:18px;margin:0 0 10px;
+  }
+  .card p{color:var(--muted);font-size:14.5px;line-height:1.6;margin:0;}
+
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:720px){.work-grid{grid-template-columns:1fr;}}
+  .work-card{
+    border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    background:var(--surface);text-decoration:none;display:block;
+  }
+  .work-card:nth-child(1){border-top:2px solid var(--cyan);}
+  .work-card:nth-child(2){border-top:2px solid var(--violet);}
+  .work-card:nth-child(3){border-top:2px solid var(--pink);}
+  .work-thumb{
+    height:150px;display:flex;align-items:center;justify-content:center;
+    font-family:'Unbounded',sans-serif;font-weight:600;font-size:13px;color:rgba(255,255,255,0.85);
+  }
+  .work-thumb.t1{background:linear-gradient(135deg,#9B5DE5,#F15BB5);}
+  .work-thumb.t2{background:linear-gradient(135deg,#2DD4A7,#9B5DE5);}
+  .work-thumb.t3{background:linear-gradient(135deg,#F15BB5,#2DD4A7);}
+  .work-info{padding:16px 18px;}
+  .work-info .tag{font-size:12px;color:var(--muted);margin:0 0 4px;}
+  .work-info .title{font-size:15px;font-weight:600;margin:0;}
+
+  .testimonial{position:relative;padding:10px 0 10px 34px;}
+  .testimonial .mark-quote{
+    position:absolute;left:-6px;top:-14px;
+    font-family:'Unbounded',sans-serif;font-size:64px;font-weight:800;
+    background:linear-gradient(160deg,var(--pink),var(--violet));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    line-height:1;user-select:none;
+  }
+  .testimonial p.quote{
+    font-size:clamp(19px,3vw,24px);line-height:1.5;margin:0 0 18px;
+    font-family:'Unbounded',sans-serif;font-weight:400;letter-spacing:-0.01em;
+  }
+  .testimonial .who{display:flex;align-items:center;gap:10px;}
+  .testimonial .avatar{
+    width:34px;height:34px;border-radius:50%;flex:none;
+    background:linear-gradient(135deg,var(--green),var(--violet));
+  }
+  .testimonial .who-text{font-size:13.5px;color:var(--muted);}
+  .testimonial .who-text strong{color:var(--text);font-weight:600;}
+
+  .about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start;}
+  @media(max-width:720px){.about{grid-template-columns:1fr;}}
+  .about h2{
+    font-family:'Unbounded',sans-serif;font-weight:600;
+    font-size:26px;margin:0 0 16px;
+  }
+  .about p{color:var(--muted);font-size:16px;line-height:1.75;margin:0;}
+
+  .lang-box{background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .lang-box .label{font-size:13px;color:var(--muted);margin-bottom:14px;}
+  .lang-list{display:flex;flex-direction:column;gap:10px;}
+  .lang-item{display:flex;justify-content:space-between;align-items:center;font-size:15px;}
+  .lang-item .dots{flex:1;height:1px;background:var(--line);margin:0 12px;}
+  .lang-item .fluency{color:var(--green);font-size:13px;font-weight:500;}
+
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:900px){.price-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.price-grid{grid-template-columns:1fr;}}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:720px){.steps{grid-template-columns:1fr;}}
+  .step{position:relative;padding:8px 0 0;}
+  .step .num{
+    font-family:'Unbounded',sans-serif;font-weight:800;font-size:15px;
+    width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;
+    margin-bottom:16px;
+  }
+  .step h3{font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;margin:0 0 8px;}
+  .step p{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+  .step-line{
+    position:absolute;top:25px;left:34px;right:-14px;height:1px;
+    background:linear-gradient(90deg,var(--line),transparent);
+  }
+  @media(max-width:720px){.step-line{display:none;}}
+  .step:last-child .step-line{display:none;}
+  .price-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;
+    padding:26px 22px;display:flex;flex-direction:column;
+  }
+  .price-card.feat{border-color:var(--pink);background:linear-gradient(160deg,var(--surface),var(--surface2));}
+  .price-card .ptag{font-size:13px;color:var(--muted);margin:0 0 6px;}
+  .price-card .pname{font-family:'Unbounded',sans-serif;font-weight:600;font-size:17px;margin:0 0 14px;}
+  .price-card .pval{font-family:'Unbounded',sans-serif;font-weight:800;font-size:30px;margin:0 0 2px;}
+  .price-card .pval span{font-size:14px;font-weight:500;color:var(--muted);}
+  .price-card .pfrom{font-size:12px;color:var(--muted);margin:0 0 18px;}
+  .price-card ul{list-style:none;padding:0;margin:0 0 22px;flex:1;}
+  .price-card li{font-size:13.5px;color:var(--muted);padding:7px 0;border-top:1px solid var(--line);}
+  .price-card li:first-child{border-top:none;}
+  .price-card a.pbtn{
+    text-align:center;padding:11px;border-radius:10px;text-decoration:none;
+    font-size:14px;font-weight:600;border:1px solid var(--line);color:var(--text);
+  }
+  .price-card.feat a.pbtn{background:linear-gradient(100deg,var(--pink),var(--violet));border:none;color:#fff;}
+  .price-note{font-size:13px;color:var(--muted);margin:16px 0 0;text-align:center;}
+
+  .contact{
+    background:linear-gradient(160deg,var(--surface),var(--surface2));
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:44px 32px;
+    text-align:center;
+  }
+  .contact h2{
+    font-family:'Unbounded',sans-serif;font-weight:800;
+    font-size:clamp(26px,5vw,36px);margin:0 0 14px;
+  }
+  .contact p.sub{color:var(--muted);margin:0 0 30px;font-size:15.5px;}
+  .contact-links{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto;}
+  .clink{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 18px;border-radius:12px;
+    background:rgba(255,255,255,0.03);border:1px solid var(--line);
+    text-decoration:none;font-size:15px;font-weight:500;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .clink:hover{border-color:var(--pink);background:rgba(241,91,181,0.1);}
+  .clink svg{width:18px;height:18px;flex:none;opacity:0.8;}
+
+  footer{position:relative;z-index:1;padding:36px 0 48px;text-align:center;}
+  footer p{color:var(--muted);font-size:13px;margin:0;}
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{opacity:0;transform:translateY(14px);animation:fadeUp .7s ease forwards;}
+    .fade-up:nth-child(1){animation-delay:.05s;}
+    .fade-up:nth-child(2){animation-delay:.15s;}
+    .fade-up:nth-child(3){animation-delay:.25s;}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  }
+</style>
+</head>
 <body>
-<header class="topbar"><div class="wrap nav"><a href="#top" class="brand">MARBELLA CLUB HOTEL<small>MARBELLA · SPAIN</small></a><button class="toggle" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="navlinks" aria-label="Main navigation"><a href="#stay">Stay</a><a href="#experience">Experience</a><a href="#story">Our story</a><a href="#visit">Visit</a></nav><div class="header-actions"><button class="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">☾</button><div class="language-switch" aria-label="Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div><a class="reserve" href="https://www.marbellaclub.com/" target="_blank" rel="noreferrer">Reservas</a></div></div></header>
-<main id="top"><section class="hero"><div class="wrap hero-content"><div class="kicker">A Mediterranean beachfront retreat</div><h1>Time moves<br>to a gentler rhythm.</h1><p>Discover a storied Andalusian finca by the sea, where gardens, warm hospitality and the Mediterranean spirit come together.</p><a class="hero-link" href="https://www.marbellaclub.com/" target="_blank" rel="noreferrer">Discover Marbella Club</a></div><div class="hero-place">Golden Mile · Marbella</div></section>
-<section class="intro"><div class="wrap"><div class="kicker">An Andalusian way of life</div><h2>Elegant simplicity.<br>A world of its own.</h2><p>Set between the Sierra Blanca mountains and the Mediterranean, Marbella Club brings together the character of a historic finca and the ease of life by the sea. A place for unhurried days, shared tables and memories that stay with you.</p><div class="signature">Welcome to Marbella Club Hotel</div></div></section>
-<section class="hotel-details" lang="es"><div class="wrap"><div class="section-kicker">Detalles del hotel</div><h2>Una estancia frente al mar en Marbella</h2><p class="details-intro">Este exclusivo hotel de playa cuenta con jardines cuidados y se encuentra a 4 km de la zona comercial de Puerto Banús y a 18 km del Marbella Golf & Country Club.</p><div class="amenity-grid"><div class="amenity">Wi-Fi gratis</div><div class="amenity">Desayuno de pago</div><div class="amenity">Aparcamiento</div><div class="amenity">Piscina exterior</div><div class="amenity">Aire acondicionado</div><div class="amenity">Servicio de lavandería</div><div class="amenity">Centro de negocios</div><div class="amenity">Se admiten mascotas</div><div class="amenity">Acceso a la playa</div><div class="amenity">Servicio de habitaciones</div><div class="amenity">Apto para familias</div><div class="amenity">Restaurante</div><div class="amenity">Traslado al aeropuerto</div><div class="amenity">Bañera de hidromasaje</div><div class="amenity">Spa</div><div class="amenity">Gimnasio</div><div class="amenity">Bar</div></div></div></section><section class="experience" id="experience"><div class="wrap">
-<article class="feature" id="stay"><div class="feature-photo" role="img" aria-label="Sunlit suite at Marbella Club" style="background-image:url('https://image-tc.galaxy.tf/wijpeg-5q0ahhy3wh7zhxw00e4rtbzyn/mch-marzo-20-9446-a2-opt.jpg?width=1400')"></div><div class="feature-copy"><div class="section-kicker">Stay awhile</div><h3>Your own quiet corner.</h3><p>Rooms, suites, bungalows and villas are designed as light-filled sanctuaries, with thoughtful details and private outdoor spaces that bring the garden close.</p><a class="text-link" href="https://www.marbellaclub.com/stay-with-us" target="_blank" rel="noreferrer">Explore rooms & villas</a></div></article>
-<article class="feature"><div class="feature-photo" role="img" aria-label="Mediterranean dining at the beach" style="background-image:url('https://image-tc.galaxy.tf/wijpeg-ahnie6m7a1dm2w86yx0isc17c/beach-club-21.jpg?crop=0%2C0%2C1280%2C853&rotate=0&width=1400')"></div><div class="feature-copy"><div class="section-kicker">By the sea</div><h3>Made for long lunches.</h3><p>Fresh Mediterranean flavours, the sound of the water and time for one more story. Discover relaxed dining shaped by the Andalusian coast.</p><a class="text-link" href="https://www.marbellaclub.com/eat-and-drink" target="_blank" rel="noreferrer">Explore dining</a></div></article>
-<article class="feature"><div class="feature-photo" role="img" aria-label="A tranquil wellness retreat" style="background-image:url('https://image-tc.galaxy.tf/wijpeg-n0u8qcg1j6z3yw0s2xdo1xbrr/wellness-yoga.jpg?width=1400')"></div><div class="feature-copy"><div class="section-kicker">Wellbeing by the water</div><h3>Find your natural balance.</h3><p>Restorative rituals and thoughtful wellness experiences invite you to slow down, reconnect and leave feeling renewed.</p><a class="text-link" href="https://www.marbellaclub.com/explore/spa" target="_blank" rel="noreferrer">Discover wellness</a></div></article>
-</div></section>
-<section class="story" id="story"><div class="wrap story-grid"><div class="story-mark" aria-hidden="true">MC</div><div><div class="section-kicker">A sense of place</div><h2>Rooted in Marbella.<br>Open to the world.</h2><p>Marbella Club Hotel grew from the Santa Margarita finca into a landmark of Mediterranean hospitality. Its enduring spirit is found in the details: generous gardens, the sea breeze, a welcoming table and the feeling that there is nowhere else you need to be.</p></div></div></section>
-<section class="visit" id="visit"><div class="wrap"><div class="section-kicker">Find your way here</div><h2 class="section-title">The Marbella coast is waiting.</h2><div class="visit-grid"><div><p>On Marbella’s Golden Mile, between the Mediterranean Sea and the foothills of the Sierra Blanca.</p><div class="contact"><div>Av. Bulevar Príncipe Alfonso de Hohenlohe, s/n</div><div>29602 Marbella, Málaga, Spain</div><div><a href="tel:+34952822211">952 82 22 11</a></div><div><a href="mailto:hotel@marbellaclub.com">hotel@marbellaclub.com</a></div></div><a class="text-link" href="https://www.marbellaclub.com/" target="_blank" rel="noreferrer">Plan your stay</a></div><div class="map"><iframe title="Mapa de Marbella Club Hotel" src="https://www.google.com/maps?q=Marbella+Club+Hotel,+Av.+Bulevar+Pr%C3%ADncipe+Alfonso+de+Hohenlohe,+s%2Fn,+29602+Marbella,+M%C3%A1laga&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="map-open" href="https://maps.google.com/?q=Marbella+Club+Hotel,+Av.+Bulevar+Pr%C3%ADncipe+Alfonso+de+Hohenlohe,+s%2Fn,+29602+Marbella,+M%C3%A1laga" target="_blank" rel="noreferrer">Ver en Google Maps ↗</a></div></div></div></section></main>
-<footer><div class="wrap footer"><a href="#top" class="brand">MARBELLA CLUB HOTEL</a><span>A Mediterranean way of life · Marbella, Spain</span><span>© Marbella Club Hotel</span></div></footer>
+<div class="glow"></div>
+
+<div class="lang-switch">
+  <button data-lang="en" class="active">EN</button>
+  <button data-lang="fr">FR</button>
+  <button data-lang="es">ES</button>
+  <button data-lang="ar">AR</button>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="brand-dots fade-up"><span></span><span></span><span></span><span></span></div>
+    <span class="mark fade-up">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" fill="#F15BB5"/></svg>
+      MAGIC ARTIST
+    </span>
+    <h1 class="fade-up">
+      <span class="line" data-i18n="h1a">Video, web &amp;</span>
+      <span class="line glimmer" data-i18n="h1b">visual craft.</span>
+    </h1>
+    <p class="tagline fade-up" data-i18n="tagline">
+      I edit videos, build websites, and design graphics —
+      turning ideas into things people actually stop and look at.
+    </p>
+    <div class="cta-row fade-up">
+      <a class="btn btn-primary" href="mailto:magicartist.edit@gmail.com" data-i18n="ctaPrimary">Start a project</a>
+      <a class="btn btn-ghost" href="#work" data-i18n="ctaGhost">See what I do</a>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <section id="work">
+    <div class="services">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="15" height="14" rx="2" stroke="#F15BB5" stroke-width="1.6"/><path d="M17 9.5l5-2.8v10.6l-5-2.8" stroke="#F15BB5" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <h3 data-i18n="s1t">Video editing</h3>
+        <p data-i18n="s1p">Cuts, pacing, color and sound that hold attention — reels, ads, and long-form, ready to publish.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#2DD4A7" stroke-width="1.6"/><path d="M3 9h18" stroke="#2DD4A7" stroke-width="1.6"/><circle cx="6" cy="6.5" r="0.8" fill="#2DD4A7"/><circle cx="8.6" cy="6.5" r="0.8" fill="#2DD4A7"/></svg>
+        <h3 data-i18n="s2t">Web design</h3>
+        <p data-i18n="s2p">Clean, fast websites built around what your visitors need to see first — not a generic template.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="#F15BB5" stroke-width="1.6"/><circle cx="15" cy="15" r="5" stroke="#9B5DE5" stroke-width="1.6"/></svg>
+        <h3 data-i18n="s3t">Graphic design</h3>
+        <p data-i18n="s3p">Logos, social posts, and brand visuals with a consistent look you can build a presence around.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2 data-i18n="workHeading" style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:26px;margin:0 0 22px;">Featured work</h2>
+    <div class="work-grid">
+      <a class="work-card" href="#">
+        <div class="work-thumb t1" data-i18n="w1thumb">Reel Edit</div>
+        <div class="work-info"><p class="tag" data-i18n="s1t">Video editing</p><p class="title" data-i18n="w1title">Brand launch reel</p></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="work-thumb t2" data-i18n="w2thumb">Site Preview</div>
+        <div class="work-info"><p class="tag" data-i18n="s2t">Web design</p><p class="title" data-i18n="w2title">Studio portfolio site</p></div>
+      </a>
+      <a class="work-card" href="#">
+        <div class="work-thumb t3" data-i18n="w3thumb">Brand Kit</div>
+        <div class="work-info"><p class="tag" data-i18n="s3t">Graphic design</p><p class="title" data-i18n="w3title">Café identity &amp; logo</p></div>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="testimonial">
+      <span class="mark-quote">&ldquo;</span>
+      <p class="quote" data-i18n="quote">Magic Artist turned a rough idea into a finished reel and a working site in the same week — fast, and it actually looked like us.</p>
+      <div class="who">
+        <span class="avatar"></span>
+        <span class="who-text" data-i18n="quoteWho"><strong>Client name</strong> — Founder, Small Business</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="about">
+      <div>
+        <h2 data-i18n="aboutH">About</h2>
+        <p data-i18n="aboutP">I'm Magic Artist — a multidisciplinary creative working across video, web, and graphic design.
+        I work with clients across different regions and languages, and I like to keep every project simple
+        to brief and fast to launch. Tell me what you need, and I'll turn it into something worth sharing.</p>
+      </div>
+      <div class="lang-box">
+        <div class="label" data-i18n="langLabel">Languages I work in</div>
+        <div class="lang-list">
+          <div class="lang-item"><span>English</span><span class="dots"></span><span class="fluency">Fluent</span></div>
+          <div class="lang-item"><span>Español</span><span class="dots"></span><span class="fluency">Fluent</span></div>
+          <div class="lang-item"><span>العربية</span><span class="dots"></span><span class="fluency">Native</span></div>
+          <div class="lang-item"><span>Français</span><span class="dots"></span><span class="fluency">Fluent</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2 data-i18n="priceHeading" style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:26px;margin:0 0 22px;">Pricing</h2>
+    <div class="price-grid">
+      <div class="price-card">
+        <p class="ptag" data-i18n="s1t">Video editing</p>
+        <p class="pname" data-i18n="p1name">Reel / Short Video</p>
+        <p class="pval">50€ <span data-i18n="p1unit">/ video</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p1f1">Up to 60 seconds</li>
+          <li data-i18n="p1f2">Color grading &amp; sound design</li>
+          <li data-i18n="p1f3">2 rounds of revisions</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <p class="ptag" data-i18n="s1t">Video editing</p>
+        <p class="pname" data-i18n="p1bname">YouTube / Long Video</p>
+        <p class="pval">100€ <span data-i18n="p1bunit">/ video</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p1bf1">Up to 10 minutes</li>
+          <li data-i18n="p1bf2">Full edit, captions &amp; thumbnail</li>
+          <li data-i18n="p1bf3">2 rounds of revisions</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+      <div class="price-card feat">
+        <p class="ptag" data-i18n="s2t">Web design</p>
+        <p class="pname" data-i18n="p2name">Portfolio / Landing Site</p>
+        <p class="pval">300€ <span data-i18n="p2unit">/ site</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p2f1">Up to 5 sections</li>
+          <li data-i18n="p2f2">Mobile-friendly design</li>
+          <li data-i18n="p2f3">1 week delivery</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <p class="ptag" data-i18n="s3t">Graphic design</p>
+        <p class="pname" data-i18n="p3name">Logo / Brand Kit</p>
+        <p class="pval">80€ <span data-i18n="p3unit">/ kit</span></p>
+        <p class="pfrom" data-i18n="pfrom">Starting at</p>
+        <ul>
+          <li data-i18n="p3f1">Logo + color palette</li>
+          <li data-i18n="p3f2">Social media templates</li>
+          <li data-i18n="p3f3">Source files included</li>
+        </ul>
+        <a class="pbtn" href="mailto:magicartist.edit@gmail.com" data-i18n="pcta">Get a quote</a>
+      </div>
+    </div>
+    <p class="price-note" data-i18n="priceNote">Prices are a starting point — the final quote depends on scope. Bundles available.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="contact">
+      <h2 data-i18n="contactH">Let's make something</h2>
+      <p class="sub" data-i18n="contactP">Have a project in mind? Reach out — I usually reply within a day.</p>
+      <div class="contact-links">
+        <a class="clink" href="mailto:magicartist.edit@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.6"/></svg>
+          magicartist.edit@gmail.com
+        </a>
+        <a class="clink" href="https://wa.me/34602542052" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19l-5 1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <span data-i18n="whatsapp">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer">© 2026 Magic Artist — Video editing · Web design · Graphic design</p>
+  </footer>
+</div>
 <script>
-const toggle=document.querySelector('.toggle'),nav=document.querySelector('.navlinks');
-toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));
-const copy={
- es:{nav:['Estancia','Experiencias','Nuestra historia','Visítanos'],reserve:'Reservas',heroKicker:'Un refugio mediterráneo junto al mar',heroTitle:'El tiempo encuentra<br>otro ritmo.',heroText:'Descubre una histórica finca andaluza junto al mar, rodeada de jardines, hospitalidad cálida y espíritu mediterráneo.',heroButton:'Descubrir Marbella Club',heroPlace:'Milla de Oro · Marbella',introKicker:'El estilo de vida andaluz',introTitle:'Elegancia sencilla.<br>Un mundo propio.',introText:'Entre la Sierra Blanca y el Mediterráneo, Marbella Club reúne el carácter de una finca histórica y la vida junto al mar. Un lugar para disfrutar sin prisa, compartir la mesa y crear recuerdos.',signature:'Te damos la bienvenida a Marbella Club Hotel',detailsKicker:'Detalles del hotel',detailsTitle:'Una estancia frente al mar en Marbella',detailsText:'Este exclusivo hotel de playa cuenta con jardines cuidados y se encuentra a 4 km de la zona comercial de Puerto Banús y a 18 km del Marbella Golf & Country Club.',amenities:['Wi-Fi gratis','Desayuno de pago','Aparcamiento','Piscina exterior','Aire acondicionado','Servicio de lavandería','Centro de negocios','Se admiten mascotas','Acceso a la playa','Servicio de habitaciones','Apto para familias','Restaurante','Traslado al aeropuerto','Bañera de hidromasaje','Spa','Gimnasio','Bar'],stay:['Alójate','Tu refugio privado.','Habitaciones, suites, bungalows y villas diseñados como refugios luminosos, con detalles cuidados y espacios exteriores privados que acercan el jardín.','Descubrir habitaciones y villas'],dining:['Junto al mar','Sobremesas sin prisa.','Sabores mediterráneos frescos, el sonido del mar y tiempo para una historia más. Descubre una cocina relajada inspirada en la costa andaluza.','Descubrir restaurantes'],wellness:['Bienestar junto al mar','Encuentra tu equilibrio.','Rituales reparadores y experiencias de bienestar para bajar el ritmo, reconectar y sentirte renovado.','Descubrir bienestar'],storyKicker:'Un lugar con historia',storyTitle:'De Marbella.<br>Para el mundo.',storyText:'Marbella Club nació en la finca Santa Margarita y se convirtió en un referente de la hospitalidad mediterránea. Su espíritu perdura en los detalles: jardines generosos, brisa marina, una mesa acogedora y la sensación de estar justo donde quieres.',visitKicker:'Cómo llegar',visitTitle:'La costa de Marbella te espera.',visitText:'En la Milla de Oro de Marbella, entre el Mediterráneo y las estribaciones de Sierra Blanca.',plan:'Planifica tu estancia',map:'Ver en Google Maps ↗',footer:'Una forma de vida mediterránea · Marbella, España'},
- en:{nav:['Stay','Experience','Our story','Visit'],reserve:'Reservations',heroKicker:'A Mediterranean beachfront retreat',heroTitle:'Time moves<br>to a gentler rhythm.',heroText:'Discover a storied Andalusian finca by the sea, where gardens, warm hospitality and the Mediterranean spirit come together.',heroButton:'Discover Marbella Club',heroPlace:'Golden Mile · Marbella',introKicker:'An Andalusian way of life',introTitle:'Elegant simplicity.<br>A world of its own.',introText:'Set between the Sierra Blanca mountains and the Mediterranean, Marbella Club brings together the character of a historic finca and the ease of life by the sea. A place for unhurried days, shared tables and memories that stay with you.',signature:'Welcome to Marbella Club Hotel',detailsKicker:'Hotel details',detailsTitle:'A beachfront stay in Marbella',detailsText:'This luxury beachfront hotel features landscaped gardens and is located 4 km from the Puerto Banús shopping area and 18 km from Marbella Golf & Country Club.',amenities:['Free Wi-Fi','Paid breakfast','Parking','Outdoor pool','Air conditioning','Laundry service','Business centre','Pets allowed','Beach access','Room service','Family-friendly','Restaurant','Airport shuttle','Hot tub','Spa','Gym','Bar'],stay:['Stay with us','Your own quiet corner.','Rooms, suites, bungalows and villas are designed as light-filled sanctuaries, with thoughtful details and private outdoor spaces that bring the garden close.','Explore rooms & villas'],dining:['By the sea','Made for long lunches.','Fresh Mediterranean flavours, the sound of the water and time for one more story. Discover relaxed dining shaped by the Andalusian coast.','Explore dining'],wellness:['Wellbeing by the water','Find your natural balance.','Restorative rituals and thoughtful wellness experiences invite you to slow down, reconnect and leave feeling renewed.','Discover wellness'],storyKicker:'A sense of place',storyTitle:'Rooted in Marbella.<br>Open to the world.',storyText:'Marbella Club grew from the Santa Margarita finca into a landmark of Mediterranean hospitality. Its enduring spirit is found in the details: generous gardens, the sea breeze, a welcoming table and the feeling that there is nowhere else you need to be.',visitKicker:'Find your way here',visitTitle:'The Marbella coast is waiting.',visitText:'On Marbella’s Golden Mile, between the Mediterranean Sea and the foothills of the Sierra Blanca.',plan:'Plan your stay',map:'Open in Google Maps ↗',footer:'A Mediterranean way of life · Marbella, Spain'}
+const I18N = {
+  en: {
+    h1a:"Video, web &amp;", h1b:"visual craft.",
+    tagline:"I edit videos, build websites, and design graphics — turning ideas into things people actually stop and look at.",
+    ctaPrimary:"Start a project", ctaGhost:"See what I do",
+    s1t:"Video editing", s1p:"Cuts, pacing, color and sound that hold attention — reels, ads, and long-form, ready to publish.",
+    s2t:"Web design", s2p:"Clean, fast websites built around what your visitors need to see first — not a generic template.",
+    s3t:"Graphic design", s3p:"Logos, social posts, and brand visuals with a consistent look you can build a presence around.",
+    workHeading:"Featured work",
+    w1thumb:"Reel Edit", w1title:"Brand launch reel",
+    w2thumb:"Site Preview", w2title:"Studio portfolio site",
+    w3thumb:"Brand Kit", w3title:"Café identity &amp; logo",
+    quote:"Magic Artist turned a rough idea into a finished reel and a working site in the same week — fast, and it actually looked like us.",
+    quoteWho:"<strong>Client name</strong> — Founder, Small Business",
+    aboutH:"About",
+    aboutP:"I'm Magic Artist — a multidisciplinary creative working across video, web, and graphic design. I work with clients across different regions and languages, and I like to keep every project simple to brief and fast to launch. Tell me what you need, and I'll turn it into something worth sharing.",
+    langLabel:"Languages I work in",
+    stepsHeading:"How it works",
+    step1t:"Tell me your idea", step1p:"Send a message with what you need and any references you like.",
+    step2t:"I create a draft", step2p:"You get a first version to review, with room for revisions.",
+    step3t:"You get the final files", step3p:"Polished, ready to publish — plus the source files if you need them.",
+    priceHeading:"Pricing", pfrom:"Starting at", pcta:"Get a quote",
+    p1name:"Reel / Short Video", p1unit:"/ video", p1f1:"Up to 60 seconds", p1f2:"Color grading &amp; sound design", p1f3:"2 rounds of revisions",
+    p1bname:"YouTube / Long Video", p1bunit:"/ video", p1bf1:"Up to 10 minutes", p1bf2:"Full edit, captions &amp; thumbnail", p1bf3:"2 rounds of revisions",
+    p2name:"Portfolio / Landing Site", p2unit:"/ site", p2f1:"Up to 5 sections", p2f2:"Mobile-friendly design", p2f3:"1 week delivery",
+    p3name:"Logo / Brand Kit", p3unit:"/ kit", p3f1:"Logo + color palette", p3f2:"Social media templates", p3f3:"Source files included",
+    priceNote:"Prices are a starting point — the final quote depends on scope. Bundles available.",
+    contactH:"Let's make something", contactP:"Have a project in mind? Reach out — I usually reply within a day.",
+    whatsapp:"WhatsApp",
+    footer:"© 2026 Magic Artist — Video editing · Web design · Graphic design"
+  },
+  fr: {
+    h1a:"Vidéo, web &amp;", h1b:"création visuelle.",
+    tagline:"Je monte des vidéos, je crée des sites web et je conçois des visuels — je transforme des idées en choses qui retiennent l'attention.",
+    ctaPrimary:"Démarrer un projet", ctaGhost:"Voir mon travail",
+    s1t:"Montage vidéo", s1p:"Rythme, montage, couleur et son qui captent l'attention — reels, publicités et formats longs, prêts à publier.",
+    s2t:"Création de sites", s2p:"Des sites propres et rapides, pensés pour ce que vos visiteurs doivent voir en premier — pas un modèle générique.",
+    s3t:"Design graphique", s3p:"Logos, visuels réseaux sociaux et identité visuelle cohérente pour construire votre image de marque.",
+    workHeading:"Projets récents",
+    w1thumb:"Montage", w1title:"Reel de lancement de marque",
+    w2thumb:"Aperçu du site", w2title:"Site portfolio studio",
+    w3thumb:"Identité visuelle", w3title:"Logo &amp; identité d'un café",
+    quote:"Magic Artist a transformé une idée en un reel terminé et un site fonctionnel en une semaine — rapide, et ça nous ressemblait vraiment.",
+    quoteWho:"<strong>Nom du client</strong> — Fondateur, petite entreprise",
+    aboutH:"À propos",
+    aboutP:"Je suis Magic Artist — créatif polyvalent en montage vidéo, création de sites et design graphique. Je travaille avec des clients de différentes régions et langues, et j'aime garder chaque projet simple à briefer et rapide à lancer. Dites-moi ce dont vous avez besoin.",
+    langLabel:"Langues de travail",
+    stepsHeading:"Comment ça marche",
+    step1t:"Parlez-moi de votre idée", step1p:"Envoyez un message avec ce dont vous avez besoin et des références si vous en avez.",
+    step2t:"Je crée une première version", step2p:"Vous recevez une version à examiner, avec possibilité de retouches.",
+    step3t:"Vous recevez les fichiers finaux", step3p:"Finalisés, prêts à publier — avec les fichiers sources si besoin.",
+    priceHeading:"Tarifs", pfrom:"À partir de", pcta:"Demander un devis",
+    p1name:"Montage court / Reel", p1unit:"/ vidéo", p1f1:"Jusqu'à 60 secondes", p1f2:"Étalonnage &amp; son", p1f3:"2 séries de retouches",
+    p1bname:"Vidéo YouTube / longue", p1bunit:"/ vidéo", p1bf1:"Jusqu'à 10 minutes", p1bf2:"Montage complet, sous-titres &amp; miniature", p1bf3:"2 séries de retouches",
+    p2name:"Site portfolio / vitrine", p2unit:"/ site", p2f1:"Jusqu'à 5 sections", p2f2:"Design adapté au mobile", p2f3:"Livraison en 1 semaine",
+    p3name:"Logo / Kit de marque", p3unit:"/ kit", p3f1:"Logo + palette de couleurs", p3f2:"Modèles pour réseaux sociaux", p3f3:"Fichiers sources inclus",
+    priceNote:"Les prix sont indicatifs — le devis final dépend du projet. Formules groupées disponibles.",
+    contactH:"Créons quelque chose", contactP:"Un projet en tête ? Contactez-moi — je réponds généralement sous 24h.",
+    whatsapp:"WhatsApp",
+    footer:"© 2026 Magic Artist — Montage vidéo · Création de sites · Design graphique"
+  },
+  es: {
+    h1a:"Vídeo, web y", h1b:"diseño visual.",
+    tagline:"Edito vídeos, creo sitios web y diseño gráficos — convierto ideas en cosas que la gente realmente se detiene a mirar.",
+    ctaPrimary:"Empezar un proyecto", ctaGhost:"Ver mi trabajo",
+    s1t:"Edición de vídeo", s1p:"Cortes, ritmo, color y sonido que captan la atención — reels, anuncios y formatos largos, listos para publicar.",
+    s2t:"Diseño web", s2p:"Sitios web limpios y rápidos, pensados en lo que tus visitantes necesitan ver primero — no una plantilla genérica.",
+    s3t:"Diseño gráfico", s3p:"Logos, publicaciones y visuales de marca con un estilo coherente para construir tu presencia.",
+    workHeading:"Trabajos destacados",
+    w1thumb:"Edición", w1title:"Reel de lanzamiento de marca",
+    w2thumb:"Vista del sitio", w2title:"Sitio portfolio de estudio",
+    w3thumb:"Kit de marca", w3title:"Identidad &amp; logo de cafetería",
+    quote:"Magic Artist convirtió una idea en un reel terminado y un sitio web funcionando en la misma semana — rápido, y realmente se veía como nosotros.",
+    quoteWho:"<strong>Nombre del cliente</strong> — Fundador, pequeña empresa",
+    aboutH:"Sobre mí",
+    aboutP:"Soy Magic Artist — un creativo multidisciplinar que trabaja en vídeo, diseño web y diseño gráfico. Trabajo con clientes de distintas regiones e idiomas, y me gusta mantener cada proyecto simple de encargar y rápido de lanzar. Dime qué necesitas.",
+    langLabel:"Idiomas de trabajo",
+    stepsHeading:"Cómo funciona",
+    step1t:"Cuéntame tu idea", step1p:"Envía un mensaje con lo que necesitas y referencias si tienes.",
+    step2t:"Creo un primer borrador", step2p:"Recibes una primera versión para revisar, con espacio para cambios.",
+    step3t:"Recibes los archivos finales", step3p:"Listos para publicar — más los archivos fuente si los necesitas.",
+    priceHeading:"Precios", pfrom:"Desde", pcta:"Pedir presupuesto",
+    p1name:"Reel / Edición corta", p1unit:"/ vídeo", p1f1:"Hasta 60 segundos", p1f2:"Corrección de color y sonido", p1f3:"2 rondas de revisión",
+    p1bname:"Vídeo YouTube / largo", p1bunit:"/ vídeo", p1bf1:"Hasta 10 minutos", p1bf2:"Edición completa, subtítulos y miniatura", p1bf3:"2 rondas de revisión",
+    p2name:"Sitio portfolio / landing", p2unit:"/ sitio", p2f1:"Hasta 5 secciones", p2f2:"Diseño adaptado a móvil", p2f3:"Entrega en 1 semana",
+    p3name:"Logo / Kit de marca", p3unit:"/ kit", p3f1:"Logo + paleta de colores", p3f2:"Plantillas para redes sociales", p3f3:"Archivos fuente incluidos",
+    priceNote:"Los precios son orientativos — el presupuesto final depende del alcance. Hay packs disponibles.",
+    contactH:"Creemos algo", contactP:"¿Tienes un proyecto en mente? Escríbeme — suelo responder en un día.",
+    whatsapp:"WhatsApp",
+    footer:"© 2026 Magic Artist — Edición de vídeo · Diseño web · Diseño gráfico"
+  },
+  ar: {
+    h1a:"مونتاج، مواقع و", h1b:"تصميم بصري.",
+    tagline:"كنمونطي الفيديوهات، كنصاوب المواقع الإلكترونية، وكندير التصميم الگرافيكي — كنحول الأفكار لحوايج الناس كيوقفو يتفرجو فيها.",
+    ctaPrimary:"ابدا مشروع", ctaGhost:"شوف الشغل ديالي",
+    s1t:"مونتاج فيديو", s1p:"قص، إيقاع، لون وصوت كيشدو الانتباه — ريلز، إعلانات، وفيديوهات طويلة، جاهزة للنشر.",
+    s2t:"تصميم مواقع", s2p:"مواقع نظيفة وسريعة، مبنية على أساس شنو لازم الزوار يشوفو أول حاجة — ماشي قالب عادي.",
+    s3t:"تصميم گرافيكي", s3p:"لوگوهات، منشورات سوشيال ميديا، وهوية بصرية متناسقة تقدر تبني بيها الحضور ديالك.",
+    workHeading:"أعمال مختارة",
+    w1thumb:"مونتاج", w1title:"ريل إطلاق ماركة",
+    w2thumb:"معاينة الموقع", w2title:"موقع بورتفوليو استوديو",
+    w3thumb:"هوية بصرية", w3title:"هوية ولوگو ديال قهوة",
+    quote:"Magic Artist حول فكرة بسيطة لريل كامل وموقع خدام فنفس الأسبوع — بسرعة، وبانت خاصنا فعلا.",
+    quoteWho:"<strong>اسم الزبون</strong> — مؤسس، مقاولة صغيرة",
+    aboutH:"شكون أنا",
+    aboutP:"أنا Magic Artist — مبدع كيخدم فبزاف ديال المجالات: مونتاج فيديو، تصميم مواقع، وگرافيك ديزاين. كنخدم مع زبناء من مناطق ولغات مختلفة، وكنحب نخلي كل مشروع بسيط وسريع. قوليا شنو محتاج ونحولوه لحاجة تستاهل.",
+    langLabel:"اللغات لي كنخدم بيهم",
+    stepsHeading:"كيفاش كنخدمو",
+    step1t:"قوليا فكرتك", step1p:"صيفط رسالة فيها شنو محتاج، وشي مراجع إلا عندك.",
+    step2t:"كنصاوب نسخة أولى", step2p:"غادي توصلك نسخة أولى باش تشوفها، وكاين مجال للتعديل.",
+    step3t:"توصلك الملفات النهائية", step3p:"جاهزة للنشر — زائد الملفات الأصلية إلا احتجتيها.",
+    priceHeading:"الأثمنة", pfrom:"بداية من", pcta:"اطلب ثمن",
+    p1name:"مونتاج ريل / فيديو قصير", p1unit:"/ فيديو", p1f1:"حتى 60 ثانية", p1f2:"تصحيح ألوان وصوت", p1f3:"جولتين ديال التعديل",
+    p1bname:"فيديو يوتيوب / طويل", p1bunit:"/ فيديو", p1bf1:"حتى 10 دقايق", p1bf2:"مونتاج كامل، ترجمة وthumbnail", p1bf3:"جولتين ديال التعديل",
+    p2name:"موقع بورتفوليو / لاندينگ", p2unit:"/ موقع", p2f1:"حتى 5 سيكسيونات", p2f2:"تصميم متجاوب مع الهاتف", p2f3:"التسليم فأسبوع",
+    p3name:"لوگو / برند كيت", p3unit:"/ كيت", p3f1:"لوگو + ألوان الماركة", p3f2:"نماذج للسوشيال ميديا", p3f3:"الملفات الأصلية متضمنة",
+    priceNote:"الأثمنة هادي تقريبية — الثمن النهائي كيتوقف على حجم المشروع. كاين باقات مجمعة.",
+    contactH:"تعالا نصاوبو شي حاجة", contactP:"عندك مشروع فبالك؟ تواصل معايا — عادة كنرد فأقل من يوم.",
+    whatsapp:"واتساب",
+    footer:"© 2026 Magic Artist — مونتاج فيديو · تصميم مواقع · تصميم گرافيكي"
+  }
 };
-function setLanguage(lang){const t=copy[lang];document.documentElement.lang=lang;document.title=lang==='es'?'Marbella Club Hotel — Un estilo de vida mediterráneo':'Marbella Club Hotel — A Mediterranean way of life';const set=(sel,value,html=false)=>{const el=document.querySelector(sel);if(el){if(html)el.innerHTML=value;else el.textContent=value}};document.querySelectorAll('.navlinks a').forEach((el,i)=>el.textContent=t.nav[i]);set('.reserve',t.reserve);set('.hero-content .kicker',t.heroKicker);set('.hero h1',t.heroTitle,true);set('.hero-content p',t.heroText);set('.hero-link',t.heroButton);set('.hero-place',t.heroPlace);set('.intro .kicker',t.introKicker);set('.intro h2',t.introTitle,true);set('.intro p',t.introText);set('.intro .signature',t.signature);set('.hotel-details .section-kicker',t.detailsKicker);set('.hotel-details h2',t.detailsTitle);set('.details-intro',t.detailsText);document.querySelectorAll('.amenity').forEach((el,i)=>el.textContent=t.amenities[i]);document.querySelectorAll('.feature').forEach((el,i)=>{const a=t[['stay','dining','wellness'][i]];if(a){el.querySelector('.section-kicker').textContent=a[0];el.querySelector('h3').textContent=a[1];el.querySelector('p').textContent=a[2];el.querySelector('.text-link').textContent=a[3]}});set('.story .section-kicker',t.storyKicker);set('.story h2',t.storyTitle,true);set('.story p',t.storyText);set('.visit .section-kicker',t.visitKicker);set('.visit h2',t.visitTitle);set('.visit-grid p',t.visitText);document.querySelector('.visit .text-link').textContent=t.plan;set('.map-open',t.map);document.querySelector('.footer span:nth-of-type(1)').textContent=t.footer;document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)))}
-document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{setLanguage(b.dataset.lang);if(typeof updateThemeLabel==='function')updateThemeLabel()}));setLanguage('es');
-const themeToggle=document.querySelector('.theme-toggle'),systemDark=window.matchMedia('(prefers-color-scheme: dark)');
-let savedTheme=null;try{savedTheme=localStorage.getItem('marbella-theme')}catch(e){}
-function updateThemeLabel(){const dark=document.documentElement.dataset.theme==='dark',es=document.documentElement.lang==='es';themeToggle.setAttribute('aria-pressed',String(dark));themeToggle.setAttribute('aria-label',dark?(es?'Cambiar a tema claro':'Switch to light theme'):(es?'Cambiar a tema oscuro':'Switch to dark theme'));themeToggle.title=themeToggle.getAttribute('aria-label');themeToggle.textContent=dark?'☀':'☾'}
-function applyTheme(){const dark=savedTheme?savedTheme==='dark':systemDark.matches;document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]').content=dark?'#171c18':'#f5f1e8';updateThemeLabel()}
-themeToggle.addEventListener('click',()=>{savedTheme=document.documentElement.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('marbella-theme',savedTheme)}catch(e){}applyTheme()});systemDark.addEventListener('change',()=>{if(!savedTheme)applyTheme()});applyTheme();</script>
-</body></html>
 
+function setLang(lang){
+  const dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-switch button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  try{ localStorage.setItem('ma_lang', lang); }catch(e){}
+}
 
+document.querySelectorAll('.lang-switch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+});
 
-
-
-
-
-
-
-
-
-
+let savedLang = 'en';
+try{ savedLang = localStorage.getItem('ma_lang') || 'en'; }catch(e){}
+if(I18N[savedLang]) setLang(savedLang);
+</script>
+</body>
+</html>
